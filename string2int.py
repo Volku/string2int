@@ -13,11 +13,10 @@ def allNumburic(word):
     return answer
 
 def power(base,exponent):
-    if exponent == 1:
-        return 1
-    for i in range(1,exponent-1):
-        base*=base
-    return base
+    result = 1;
+    for i in range(1,exponent):
+        result*=base    
+    return result
 input = input("Please enter input: ")
 result = allNumburic(input)
 print(result)

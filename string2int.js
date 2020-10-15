@@ -16,10 +16,9 @@ const numberic =new Map([
     ["9",9]
 ])
 const powerOfTen=(exp) => {
-    let result = 10
-    if(exp ==0) return 1
-    while(exp>1){
-        result*=result
+    let result = 1
+    while(exp>0){
+        result*=10
         exp--
     }
     return result
@@ -27,8 +26,12 @@ const powerOfTen=(exp) => {
 const toInteger=(arr)=>{
     let result = 0
     if(arr instanceof Array){
+        let fromIndex= 0
         arr.forEach((num)=>{
-            result+=numberic.get(num)*powerOfTen(arr.length-(arr.indexOf(num)+1))
+            let parsedInteger = numberic.get(num);
+            if(parsedInteger ==0) return;
+            let exp =arr.length-(arr.indexOf(num,fromIndex++)+1)
+            result+=parsedInteger*powerOfTen(exp)
         })
         return result
     }
