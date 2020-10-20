@@ -36,6 +36,9 @@ const string2int = (word) => {
 
 let testPass = true
 //Standard Case
+const ResultIsInteger = string2int("abc123")
+assert(Number.isInteger(ResultIsInteger))
+
 const numAfterAlphabhet = "abc123"
 assert(string2int(numAfterAlphabhet) === 123)
 
@@ -58,7 +61,6 @@ assert(string2int(case_6) === 123456789)
 for (let i = 0; i < 6; i++) {
     let random = parseInt(Math.floor(1000000000 + Math.random() * 900000000000));
     let questionTosolve = random.toString(10)
-    console.log(Number.isInteger(questionTosolve))
     let result = string2int(random.toString(10))
     console.log(result + ': ' + random)
     console.log("result is Integer: ", Number.isInteger(result))
